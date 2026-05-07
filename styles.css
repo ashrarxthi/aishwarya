@@ -130,6 +130,18 @@ html, body {
   object-position: center;
 }
 
+/* Picasso frame — mirrors degas styling, positioned lower-right with opposite tilt */
+.picasso-frame {
+  position: absolute;
+  top: 62%;
+  right: 30%;
+  width: clamp(130px, 12vw, 185px);
+  aspect-ratio: 4 / 5;
+  transform: rotate(4deg);
+  z-index: 2;
+  filter: drop-shadow(0 12px 28px rgba(40, 20, 10, 0.35));
+}
+
 /* ---------------------------------------- CREATIVE GLYPHS (music notes) ----- */
 .creative-glyphs span {
   position: absolute;
@@ -345,5 +357,6 @@ html, body {
   .bubble-label { font-size: 0.85rem; }
   .bubble { padding: 12px 20px; min-width: 90px; }
   .degas-frame { width: 110px; right: 5%; top: 5%; }
+  .picasso-frame { width: 100px; right: 8%; top: 45%; }
   .pointe-shoes { width: 90px; right: 5%; bottom: 5%; }
 }

@@ -173,7 +173,7 @@ html, body {
 }
 .photo-frame {
   width: clamp(150px, 16vw, 220px);
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 2 / 3;
   background: white;
   padding: 10px 10px 28px;
   border-radius: 3px;
@@ -190,6 +190,8 @@ html, body {
   width: 100%;
   height: 100%;
   border-radius: 1px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .name {

@@ -14,12 +14,14 @@
   <!-- Shared SVG defs (gradients used across multiple SVGs) -->
   <svg width="0" height="0" aria-hidden="true" style="position:absolute">
     <defs>
-      <linearGradient id="right-bg" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%"   stop-color="#fff5e9" />
-        <stop offset="28%"  stop-color="#ffd5e9" />
-        <stop offset="55%"  stop-color="#cfeaff" />
-        <stop offset="80%"  stop-color="#e3d6ff" />
-        <stop offset="100%" stop-color="#d6f4e4" />
+      <linearGradient id="right-bg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#ffd0d0" />
+        <stop offset="18%"  stop-color="#ffd9b0" />
+        <stop offset="36%"  stop-color="#fff2bf" />
+        <stop offset="54%"  stop-color="#cdf0c9" />
+        <stop offset="72%"  stop-color="#cfe6ff" />
+        <stop offset="86%"  stop-color="#dccdf2" />
+        <stop offset="100%" stop-color="#f1cdec" />
       </linearGradient>
       <linearGradient id="squiggle-grad" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%"   stop-color="#1a1a1a" />
@@ -121,27 +123,6 @@
         <span style="top:22%; right:32%;">♫</span>
         <span style="top:80%; right:8%;">♬</span>
       </div>
-
-      <!-- Pointe shoes -->
-      <svg class="pointe-shoes" viewBox="0 0 140 80" aria-hidden="true">
-        <!-- shoe 1 -->
-        <g transform="translate(0,8) rotate(-8 35 30)">
-          <path d="M2 32 Q2 18, 22 14 Q42 10, 60 18 Q72 22, 70 30 Q66 38, 50 38 Q28 40, 14 38 Q2 38, 2 32 Z"
-                fill="#ffd0de" stroke="#b9707f" stroke-width="0.8" />
-          <ellipse cx="62" cy="28" rx="6" ry="3" fill="#f5b8c8" opacity="0.7" />
-          <!-- ribbons -->
-          <path d="M30 14 Q24 4, 30 -4 M30 14 Q36 4, 32 -6"
-                stroke="#ff96b1" stroke-width="1.4" fill="none" stroke-linecap="round" />
-        </g>
-        <!-- shoe 2 -->
-        <g transform="translate(58,30) rotate(10 35 30)">
-          <path d="M2 32 Q2 18, 22 14 Q42 10, 60 18 Q72 22, 70 30 Q66 38, 50 38 Q28 40, 14 38 Q2 38, 2 32 Z"
-                fill="#ffd0de" stroke="#b9707f" stroke-width="0.8" />
-          <ellipse cx="62" cy="28" rx="6" ry="3" fill="#f5b8c8" opacity="0.7" />
-          <path d="M30 14 Q24 4, 30 -4 M30 14 Q36 4, 32 -6"
-                stroke="#ff96b1" stroke-width="1.4" fill="none" stroke-linecap="round" />
-        </g>
-      </svg>
     </section>
 
     <!-- Center photo + name -->
@@ -212,8 +193,8 @@
       <span class="trail-dot t2"></span>
     </a>
 
-    <!-- RIGHT bubbles (creative) — 6 -->
-    <a class="bubble bubble-right" href="#" target="_blank" rel="noopener" style="top:8%; right:18%;">
+    <!-- RIGHT bubbles (creative) — 6, one per rainbow color -->
+    <a class="bubble bubble-right" href="#" target="_blank" rel="noopener" style="top:8%; right:18%; --hue:0;">
       <svg class="cloud" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">
         <path d="M 30 70 C 5 70, 5 45, 30 45 C 25 20, 60 15, 70 35 C 80 10, 120 10, 130 35 C 155 25, 185 40, 175 60 C 200 65, 195 90, 170 80 C 165 100, 130 100, 120 80 C 110 100, 75 95, 70 80 C 45 95, 20 90, 30 70 Z" />
       </svg>
@@ -221,7 +202,7 @@
       <span class="trail-dot t1"></span>
       <span class="trail-dot t2"></span>
     </a>
-    <a class="bubble bubble-right" href="#" target="_blank" rel="noopener" style="top:25%; right:8%;">
+    <a class="bubble bubble-right" href="modeling.html" style="top:25%; right:8%; --hue:32;">
       <svg class="cloud" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">
         <path d="M 30 70 C 5 70, 5 45, 30 45 C 25 20, 60 15, 70 35 C 80 10, 120 10, 130 35 C 155 25, 185 40, 175 60 C 200 65, 195 90, 170 80 C 165 100, 130 100, 120 80 C 110 100, 75 95, 70 80 C 45 95, 20 90, 30 70 Z" />
       </svg>
@@ -229,7 +210,7 @@
       <span class="trail-dot t1"></span>
       <span class="trail-dot t2"></span>
     </a>
-    <a class="bubble bubble-right" href="#" target="_blank" rel="noopener" style="top:42%; right:18%;">
+    <a class="bubble bubble-right" href="#" target="_blank" rel="noopener" style="top:42%; right:18%; --hue:55;">
       <svg class="cloud" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">
         <path d="M 30 70 C 5 70, 5 45, 30 45 C 25 20, 60 15, 70 35 C 80 10, 120 10, 130 35 C 155 25, 185 40, 175 60 C 200 65, 195 90, 170 80 C 165 100, 130 100, 120 80 C 110 100, 75 95, 70 80 C 45 95, 20 90, 30 70 Z" />
       </svg>
@@ -237,7 +218,7 @@
       <span class="trail-dot t1"></span>
       <span class="trail-dot t2"></span>
     </a>
-    <a class="bubble bubble-right" href="#" target="_blank" rel="noopener" style="top:58%; right:8%;">
+    <a class="bubble bubble-right" href="#" target="_blank" rel="noopener" style="top:58%; right:8%; --hue:135;">
       <svg class="cloud" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">
         <path d="M 30 70 C 5 70, 5 45, 30 45 C 25 20, 60 15, 70 35 C 80 10, 120 10, 130 35 C 155 25, 185 40, 175 60 C 200 65, 195 90, 170 80 C 165 100, 130 100, 120 80 C 110 100, 75 95, 70 80 C 45 95, 20 90, 30 70 Z" />
       </svg>
@@ -245,7 +226,7 @@
       <span class="trail-dot t1"></span>
       <span class="trail-dot t2"></span>
     </a>
-    <a class="bubble bubble-right" href="#" target="_blank" rel="noopener" style="top:75%; right:18%;">
+    <a class="bubble bubble-right" href="#" target="_blank" rel="noopener" style="top:75%; right:18%; --hue:215;">
       <svg class="cloud" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">
         <path d="M 30 70 C 5 70, 5 45, 30 45 C 25 20, 60 15, 70 35 C 80 10, 120 10, 130 35 C 155 25, 185 40, 175 60 C 200 65, 195 90, 170 80 C 165 100, 130 100, 120 80 C 110 100, 75 95, 70 80 C 45 95, 20 90, 30 70 Z" />
       </svg>
@@ -253,7 +234,7 @@
       <span class="trail-dot t1"></span>
       <span class="trail-dot t2"></span>
     </a>
-    <a class="bubble bubble-right" href="#" target="_blank" rel="noopener" style="top:92%; right:8%;">
+    <a class="bubble bubble-right" href="#" target="_blank" rel="noopener" style="top:92%; right:8%; --hue:285;">
       <svg class="cloud" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">
         <path d="M 30 70 C 5 70, 5 45, 30 45 C 25 20, 60 15, 70 35 C 80 10, 120 10, 130 35 C 155 25, 185 40, 175 60 C 200 65, 195 90, 170 80 C 165 100, 130 100, 120 80 C 110 100, 75 95, 70 80 C 45 95, 20 90, 30 70 Z" />
       </svg>

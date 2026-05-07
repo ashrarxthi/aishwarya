@@ -66,56 +66,114 @@ html, body {
   letter-spacing: 0.02em;
 }
 
-/* ---------------------------------------- FRAMED PAINTINGS ----- */
+/* ---------------------------------------- ANTIQUE GOLD FRAMES ----- */
 .degas-frame,
 .picasso-frame {
   position: absolute;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   z-index: 2;
-  filter: drop-shadow(0 12px 28px rgba(40, 20, 10, 0.35));
   margin: 0;
+  filter: drop-shadow(0 14px 22px rgba(30, 15, 5, 0.45))
+          drop-shadow(0 4px 6px rgba(20, 10, 0, 0.4));
 }
 
 .degas-frame {
-  top: 14%;
-  right: 26%;
-  width: clamp(160px, 15vw, 230px);
+  top: 16%;
+  right: 28%;
+  width: clamp(150px, 14vw, 215px);
   transform: rotate(-3deg);
 }
 
 .picasso-frame {
   top: 60%;
-  right: 28%;
-  width: clamp(150px, 14vw, 215px);
+  right: 30%;
+  width: clamp(140px, 13vw, 200px);
   transform: rotate(4deg);
 }
 
-/* The painting sits inside the frame.jpg cutout */
-.degas-frame .painting,
-.picasso-frame .painting {
-  position: absolute;
-  top: 14%;
-  bottom: 13%;
-  left: 17%;
-  right: 17%;
-  width: auto;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
-  z-index: 1;
-  display: block;
-}
-
-/* The frame image overlays the painting, its cutout reveals the art */
-.degas-frame .frame-img,
-.picasso-frame .frame-img {
-  position: absolute;
-  inset: 0;
+/* Outer carved gold molding */
+.frame-outer {
   width: 100%;
   height: 100%;
-  z-index: 2;
+  padding: 16px;
+  position: relative;
+  border-radius: 2px;
+  background:
+    /* darker patina spots */
+    radial-gradient(ellipse at 18% 22%, rgba(80, 50, 15, 0.35) 0%, transparent 40%),
+    radial-gradient(ellipse at 82% 78%, rgba(60, 35, 8, 0.4) 0%, transparent 45%),
+    /* base gold with patina variation */
+    linear-gradient(135deg,
+      #e8c373 0%,
+      #b8862e 22%,
+      #7a531a 48%,
+      #c89a3e 70%,
+      #8a5d20 100%);
+  box-shadow:
+    /* raised top-left highlight, sunken bottom-right */
+    inset 1px 1px 0 rgba(255, 240, 190, 0.75),
+    inset -1px -1px 0 rgba(30, 15, 0, 0.7),
+    /* deep carved outer edge */
+    inset 0 0 0 2px rgba(50, 28, 8, 0.5),
+    /* depth on the wall */
+    0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Carved decorative groove ring */
+.frame-outer::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 1px;
   pointer-events: none;
+  background:
+    linear-gradient(135deg,
+      #f4d98a 0%,
+      #a9802c 50%,
+      #6a4a16 100%);
+  box-shadow:
+    inset 1px 1px 0 rgba(40, 20, 5, 0.7),
+    inset -1px -1px 0 rgba(255, 235, 170, 0.55),
+    inset 0 0 4px rgba(60, 35, 10, 0.45);
+}
+
+/* Inner sight edge — sharp carved bevel where gold meets liner */
+.frame-outer::after {
+  content: "";
+  position: absolute;
+  inset: 13px;
+  border-radius: 1px;
+  pointer-events: none;
+  box-shadow:
+    inset 1.5px 1.5px 2px rgba(20, 10, 0, 0.85),
+    inset -1px -1px 1px rgba(255, 230, 165, 0.45),
+    0 0 0 1px rgba(40, 20, 5, 0.8);
+}
+
+/* Cream linen liner between gold and canvas (museum-style) */
+.frame-inner {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  background:
+    repeating-linear-gradient(45deg,
+      rgba(120, 90, 40, 0.04) 0 2px,
+      transparent 2px 4px),
+    linear-gradient(135deg, #f5ebd2 0%, #d8c79a 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(110, 80, 30, 0.55),
+    inset 0 1px 3px rgba(60, 35, 10, 0.35);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.painting {
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* ---------------------------------------- CREATIVE GLYPHS (music notes) ----- */

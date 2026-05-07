@@ -173,44 +173,46 @@ html, body {
 }
 .photo-frame {
   position: relative;
-  width: clamp(150px, 16vw, 220px);
-  aspect-ratio: 2 / 3;
+  width: clamp(200px, 22vw, 300px);
   background: white;
-  padding: 10px 10px 44px;
+  padding: 14px 14px 18px;
   border-radius: 3px;
   box-shadow:
     0 1px 0 rgba(0,0,0,0.06),
-    0 14px 36px rgba(0,0,0,0.35),
-    0 24px 48px rgba(0,0,0,0.18);
+    0 16px 40px rgba(0,0,0,0.35),
+    0 28px 56px rgba(0,0,0,0.2);
   transition: transform 400ms ease;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .photo-frame:hover { transform: scale(1.03) rotate(-1.5deg); }
+
+.photo-window {
+  width: 100%;
+  aspect-ratio: 8 / 9;
+  overflow: hidden;
+  background: #1a1a1a;
+}
 .photo-placeholder {
   display: block;
   width: 100%;
   height: 100%;
-  border-radius: 1px;
   object-fit: cover;
-  object-position: center;
+  object-position: center bottom;
 }
 
 /* Sharpie-style handwritten caption on the polaroid bottom */
 .polaroid-caption {
-  position: absolute;
-  bottom: 8px;
-  left: 0;
-  right: 0;
+  margin: 14px 0 4px;
   text-align: center;
   font-family: 'Homemade Apple', 'Caveat', cursive;
   font-weight: 400;
-  font-size: clamp(0.95rem, 1.05vw, 1.15rem);
+  font-size: clamp(0.78rem, 0.9vw, 1rem);
   color: #1a1a1a;
   letter-spacing: 0.01em;
+  white-space: nowrap;
   transform: rotate(-3deg);
   transform-origin: center;
-  margin: 0;
-  /* subtle ink imperfection */
   text-shadow: 0 0 0.4px rgba(0,0,0,0.5);
   pointer-events: none;
 }

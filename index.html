@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aishwarya Rathi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Shared SVG defs (gradients used across multiple SVGs) -->
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+    <defs>
+      <linearGradient id="right-bg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%"   stop-color="#fff5e9" />
+        <stop offset="28%"  stop-color="#ffd5e9" />
+        <stop offset="55%"  stop-color="#cfeaff" />
+        <stop offset="80%"  stop-color="#e3d6ff" />
+        <stop offset="100%" stop-color="#d6f4e4" />
+      </linearGradient>
+      <linearGradient id="squiggle-grad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#1a1a1a" />
+        <stop offset="40%"  stop-color="#7a3aa8" />
+        <stop offset="100%" stop-color="#ff5b9a" />
+      </linearGradient>
+      <linearGradient id="cloud-bright" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%"   stop-color="#ffc8df" />
+        <stop offset="50%"  stop-color="#fff1c9" />
+        <stop offset="100%" stop-color="#c4e6ff" />
+      </linearGradient>
+      <radialGradient id="degas-wash" cx="50%" cy="45%" r="80%">
+        <stop offset="0%"   stop-color="#fde2c6" />
+        <stop offset="60%"  stop-color="#c89880" />
+        <stop offset="100%" stop-color="#5a3d34" />
+      </radialGradient>
+      <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%"   stop-color="#f4d98a" />
+        <stop offset="50%"  stop-color="#a9802c" />
+        <stop offset="100%" stop-color="#6a4a16" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <main class="brain">
+
+    <!-- Background paint: two regions divided by the squiggle -->
+    <svg class="bg-paint" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <!-- Left region (cream) -->
+      <path d="M 0 0 L 50 0
+               C 65 8, 35 17, 50 25
+               C 65 33, 35 42, 50 50
+               C 65 58, 35 67, 50 75
+               C 65 83, 35 92, 50 100
+               L 0 100 Z"
+            fill="#f6f5f1" />
+      <!-- Right region (rainbow) -->
+      <path d="M 50 0
+               C 65 8, 35 17, 50 25
+               C 65 33, 35 42, 50 50
+               C 65 58, 35 67, 50 75
+               C 65 83, 35 92, 50 100
+               L 100 100 L 100 0 Z"
+            fill="url(#right-bg)" />
+      <!-- Squiggle stroke (the visible divide) -->
+      <path d="M 50 0
+               C 65 8, 35 17, 50 25
+               C 65 33, 35 42, 50 50
+               C 65 58, 35 67, 50 75
+               C 65 83, 35 92, 50 100"
+            fill="none"
+            stroke="url(#squiggle-grad)"
+            stroke-width="2.5"
+            vector-effect="non-scaling-stroke"
+            stroke-linecap="round" />
+    </svg>
+
+    <!-- LEFT decorations: math, B&W -->
+    <section class="side side-left" aria-hidden="true">
+      <div class="grid-paper"></div>
+      <div class="equations">
+        <span style="top:8%;  left:5%;">∫₀^∞ e^(-x²) dx = √π / 2</span>
+        <span style="top:18%; left:24%;">∇²φ = 0</span>
+        <span style="top:30%; left:6%;">e^(iπ) + 1 = 0</span>
+        <span style="top:44%; left:20%;">f(x) = ax² + bx + c</span>
+        <span style="top:56%; left:4%;">Σ 1/n² = π² / 6</span>
+        <span style="top:68%; left:22%;">P(A∩B) = P(A)·P(B|A)</span>
+        <span style="top:80%; left:6%;">lim_{x→0} sin(x)/x = 1</span>
+        <span style="top:90%; left:24%;">∂u/∂t = α ∇²u</span>
+        <span style="top:24%; left:33%;">dy/dx</span>
+        <span style="top:62%; left:30%;">∮ E·dA = Q/ε₀</span>
+      </div>
+    </section>
+
+    <!-- RIGHT decorations: Degas painting, music notes, pointe shoes -->
+    <section class="side side-right" aria-hidden="true">
+
+      <!-- Degas painting in an antique gold frame -->
+      <figure class="degas-frame">
+        <div class="frame-outer">
+          <div class="frame-inner">
+            <img class="degas-painting" src="degas.jpg" alt="Edgar Degas — Dancer with Bouquets" />
+          </div>
+        </div>
+      </figure>
+
+      <!-- Music notes (sparingly) -->
+      <div class="creative-glyphs">
+        <span style="top:10%; right:10%;">♪</span>
+        <span style="top:22%; right:32%;">♫</span>
+        <span style="top:80%; right:8%;">♬</span>
+      </div>
+
+      <!-- Pointe shoes -->
+      <svg class="pointe-shoes" viewBox="0 0 140 80" aria-hidden="true">
+        <!-- shoe 1 -->
+        <g transform="translate(0,8) rotate(-8 35 30)">
+          <path d="M2 32 Q2 18, 22 14 Q42 10, 60 18 Q72 22, 70 30 Q66 38, 50 38 Q28 40, 14 38 Q2 38, 2 32 Z"
+                fill="#ffd0de" stroke="#b9707f" stroke-width="0.8" />
+          <ellipse cx="62" cy="28" rx="6" ry="3" fill="#f5b8c8" opacity="0.7" />
+          <!-- ribbons -->
+          <path d="M30 14 Q24 4, 30 -4 M30 14 Q36 4, 32 -6"
+                stroke="#ff96b1" stroke-width="1.4" fill="none" stroke-linecap="round" />
+        </g>
+        <!-- shoe 2 -->
+        <g transform="translate(58,30) rotate(10 35 30)">
+          <path d="M2 32 Q2 18, 22 14 Q42 10, 60 18 Q72 22, 70 30 Q66 38, 50 38 Q28 40, 14 38 Q2 38, 2 32 Z"
+                fill="#ffd0de" stroke="#b9707f" stroke-width="0.8" />
+          <ellipse cx="62" cy="28" rx="6" ry="3" fill="#f5b8c8" opacity="0.7" />
+          <path d="M30 14 Q24 4, 30 -4 M30 14 Q36 4, 32 -6"
+                stroke="#ff96b1" stroke-width="1.4" fill="none" stroke-linecap="round" />
+        </g>
+      </svg>
+    </section>
+
+    <!-- Center photo + name -->
+    <div class="center">
+      <div class="photo-frame">
+        <!-- Placeholder silhouette - swap for an <img src="me.jpg" /> later -->
+        <svg viewBox="0 0 100 100" class="photo-placeholder" aria-label="Photo placeholder">
+          <defs>
+            <linearGradient id="ph-grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%"   stop-color="#1a1a1a" />
+              <stop offset="50%"  stop-color="#3a2a4a" />
+              <stop offset="100%" stop-color="#1a1a1a" />
+            </linearGradient>
+          </defs>
+          <rect width="100" height="100" fill="url(#ph-grad)" />
+          <circle cx="50" cy="38" r="14" fill="#d8d8d8" opacity="0.85" />
+          <path d="M20 90 C 20 65, 80 65, 80 90 Z" fill="#d8d8d8" opacity="0.85" />
+        </svg>
+      </div>
+      <h1 class="name">Aishwarya Rathi</h1>
+    </div>
+
+    <!-- LEFT bubbles (professional) -->
+    <a class="bubble bubble-left" href="#" target="_blank" rel="noopener" style="top:18%; left:14%;">
+      <svg class="cloud" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M 30 70 C 5 70, 5 45, 30 45 C 25 20, 60 15, 70 35 C 80 10, 120 10, 130 35 C 155 25, 185 40, 175 60 C 200 65, 195 90, 170 80 C 165 100, 130 100, 120 80 C 110 100, 75 95, 70 80 C 45 95, 20 90, 30 70 Z" />
+      </svg>
+      <span class="bubble-label">Side Project</span>
+      <span class="trail-dot t1"></span>
+      <span class="trail-dot t2"></span>
+    </a>
+
+    <a class="bubble bubble-left" href="#" target="_blank" rel="noopener" style="top:46%; left:11%;">
+      <svg class="cloud" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M 30 70 C 5 70, 5 45, 30 45 C 25 20, 60 15, 70 35 C 80 10, 120 10, 130 35 C 155 25, 185 40, 175 60 C 200 65, 195 90, 170 80 C 165 100, 130 100, 120 80 C 110 100, 75 95, 70 80 C 45 95, 20 90, 30 70 Z" />
+      </svg>
+      <span class="bubble-label">GitHub</span>
+      <span class="trail-dot t1"></span>
+      <span class="trail-dot t2"></span>
+    </a>
+
+    <a class="bubble bubble-left" href="#" target="_blank" rel="noopener" style="top:74%; left:14%;">
+      <svg class="cloud" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M 30 70 C 5 70, 5 45, 30 45 C 25 20, 60 15, 70 35 C 80 10, 120 10, 130 35 C 155 25, 185 40, 175 60 C 200 65, 195 90, 170 80 C 165 100, 130 100, 120 80 C 110 100, 75 95, 70 80 C 45 95, 20 90, 30 70 Z" />
+      </svg>
+      <span class="bubble-label">LinkedIn</span>
+      <span class="trail-dot t1"></span>
+      <span class="trail-dot t2"></span>
+    </a>
+
+    <!-- RIGHT bubbles (creative) -->
+    <a class="bubble bubble-right" href="#" target="_blank" rel="noopener" style="top:18%; right:14%;">
+      <svg class="cloud" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M 30 70 C 5 70, 5 45, 30 45 C 25 20, 60 15, 70 35 C 80 10, 120 10, 130 35 C 155 25, 185 40, 175 60 C 200 65, 195 90, 170 80 C 165 100, 130 100, 120 80 C 110 100, 75 95, 70 80 C 45 95, 20 90, 30 70 Z" />
+      </svg>
+      <span class="bubble-label">Jewelry Co</span>
+      <span class="trail-dot t1"></span>
+      <span class="trail-dot t2"></span>
+    </a>
+
+    <a class="bubble bubble-right" href="#" target="_blank" rel="noopener" style="top:46%; right:11%;">
+      <svg class="cloud" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M 30 70 C 5 70, 5 45, 30 45 C 25 20, 60 15, 70 35 C 80 10, 120 10, 130 35 C 155 25, 185 40, 175 60 C 200 65, 195 90, 170 80 C 165 100, 130 100, 120 80 C 110 100, 75 95, 70 80 C 45 95, 20 90, 30 70 Z" />
+      </svg>
+      <span class="bubble-label">Dance</span>
+      <span class="trail-dot t1"></span>
+      <span class="trail-dot t2"></span>
+    </a>
+
+    <a class="bubble bubble-right" href="#" target="_blank" rel="noopener" style="top:74%; right:14%;">
+      <svg class="cloud" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M 30 70 C 5 70, 5 45, 30 45 C 25 20, 60 15, 70 35 C 80 10, 120 10, 130 35 C 155 25, 185 40, 175 60 C 200 65, 195 90, 170 80 C 165 100, 130 100, 120 80 C 110 100, 75 95, 70 80 C 45 95, 20 90, 30 70 Z" />
+      </svg>
+      <span class="bubble-label">Modeling</span>
+      <span class="trail-dot t1"></span>
+      <span class="trail-dot t2"></span>
+    </a>
+
+  </main>
+</body>
+</html>

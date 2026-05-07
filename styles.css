@@ -1,0 +1,335 @@
+/* ============================================================
+   Personal site — split-brain landing
+   left: professional, B&W, math
+   right: creative, bright rainbow, Degas + music
+   The squiggle IS the divide between the two regions.
+   ============================================================ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: #0c0c0e;
+  color: #1a1a1a;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------------------------------- STAGE ----- */
+.brain {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Background paint covers the full stage */
+.bg-paint {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* ---------------------------------------- SIDES (decoration containers only — no bg) ----- */
+.side {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+.side-left  { left: 0; }
+.side-right { right: 0; }
+
+/* Graph paper on left */
+.grid-paper {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right,  rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Equation labels on left */
+.equations span {
+  position: absolute;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: rgba(20, 20, 20, 0.42);
+  font-size: clamp(0.85rem, 1.05vw, 1.15rem);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+/* ---------------------------------------- DEGAS PAINTING ----- */
+.degas-frame {
+  position: absolute;
+  top: 18%;
+  right: 28%;
+  width: clamp(140px, 13vw, 200px);
+  aspect-ratio: 4 / 5;
+  transform: rotate(-3deg);
+  z-index: 2;
+  filter: drop-shadow(0 12px 28px rgba(40, 20, 10, 0.35));
+}
+
+/* Outer gold frame */
+.frame-outer {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  background:
+    linear-gradient(135deg, #f4d98a 0%, #b8862e 35%, #6f4c1c 70%, #c79a3e 100%);
+  box-shadow:
+    inset 0 0 0 1px #4a3010,
+    inset 0 0 6px rgba(60,30,5,0.5),
+    0 2px 4px rgba(0,0,0,0.2);
+  position: relative;
+}
+/* Carved bevel ring inside the gold */
+.frame-outer::before,
+.frame-outer::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 3px;
+}
+.frame-outer::before {
+  inset: 4px;
+  border: 1px solid rgba(80, 50, 15, 0.55);
+  background:
+    repeating-linear-gradient(45deg,
+      rgba(255,230,160,0.05) 0 3px,
+      rgba(60,40,10,0.05) 3px 6px);
+}
+.frame-outer::after {
+  inset: 8px;
+  border: 1px solid rgba(255, 235, 180, 0.6);
+  box-shadow: inset 0 0 8px rgba(80,50,15,0.4);
+}
+
+.frame-inner {
+  width: 100%;
+  height: 100%;
+  background: #1a0f08;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+.degas-painting {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ---------------------------------------- CREATIVE GLYPHS (music notes) ----- */
+.creative-glyphs span {
+  position: absolute;
+  color: #b13b7d;
+  font-size: clamp(1.6rem, 2.4vw, 2.6rem);
+  font-family: 'Playfair Display', serif;
+  text-shadow: 0 2px 6px rgba(180, 60, 130, 0.25);
+  animation: float 7s ease-in-out infinite;
+  z-index: 2;
+}
+.creative-glyphs span:nth-child(2n) { animation-delay: -2.5s; color: #6e58c4; }
+.creative-glyphs span:nth-child(3n) { animation-delay: -4.5s; color: #d96a32; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-8px) rotate(2deg); }
+}
+
+/* Pointe shoes */
+.pointe-shoes {
+  position: absolute;
+  bottom: 10%;
+  right: 28%;
+  width: clamp(110px, 12vw, 170px);
+  height: auto;
+  z-index: 2;
+  filter: drop-shadow(0 6px 12px rgba(180, 100, 130, 0.3));
+  animation: float 9s ease-in-out infinite;
+}
+
+/* ---------------------------------------- CENTER PHOTO ----- */
+.center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+.photo-frame {
+  width: clamp(150px, 16vw, 220px);
+  aspect-ratio: 4 / 5;
+  background: white;
+  padding: 10px 10px 28px;
+  border-radius: 3px;
+  box-shadow:
+    0 1px 0 rgba(0,0,0,0.06),
+    0 14px 36px rgba(0,0,0,0.35),
+    0 24px 48px rgba(0,0,0,0.18);
+  transition: transform 400ms ease;
+  overflow: hidden;
+}
+.photo-frame:hover { transform: scale(1.03) rotate(-1.5deg); }
+.photo-placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 1px;
+}
+
+.name {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1.8rem, 2.6vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #1a1a1a;
+  text-shadow:
+    0 0 12px rgba(255,255,255,0.7),
+    0 1px 0 rgba(255,255,255,0.5);
+}
+
+/* ---------------------------------------- BUBBLES (cloud-shaped) ----- */
+.bubble {
+  position: absolute;
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 30px;
+  min-width: 130px;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: transform 320ms cubic-bezier(.2,.9,.3,1.4),
+              filter 320ms ease;
+  animation: drift 6s ease-in-out infinite;
+}
+.bubble:nth-of-type(odd) { animation-delay: -2s; }
+.bubble:nth-of-type(3n)  { animation-delay: -4s; }
+
+@keyframes drift {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -6px; }
+}
+
+.bubble .cloud {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: visible;
+}
+.bubble .bubble-label {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(0.9rem, 1.05vw, 1.1rem);
+  letter-spacing: 0.04em;
+}
+
+/* LEFT cloud — comic-book B&W */
+.bubble-left .cloud path {
+  fill: #ffffff;
+  stroke: #111;
+  stroke-width: 2.4;
+  vector-effect: non-scaling-stroke;
+}
+.bubble-left .bubble-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  color: #111;
+}
+.bubble-left:hover {
+  transform: translate(-50%, -50%) scale(1.08) rotate(-1.5deg);
+  filter: drop-shadow(2px 4px 0 #111);
+}
+
+/* RIGHT cloud — bright rainbow */
+.bubble-right .cloud path {
+  fill: url(#cloud-bright);
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 4px 14px rgba(255, 130, 180, 0.45));
+}
+.bubble-right .bubble-label {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: clamp(1.05rem, 1.3vw, 1.35rem);
+  color: #3a1a4a;
+}
+.bubble-right:hover {
+  transform: translate(-50%, -50%) scale(1.1) rotate(2deg);
+  filter: drop-shadow(0 8px 20px rgba(255, 130, 180, 0.7));
+}
+
+/* ---------------------------------------- TRAIL DOTS (thought-bubble trail) ----- */
+.trail-dot {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Left bubbles trail to the RIGHT (toward center) */
+.bubble-left .trail-dot.t1 {
+  width: 16px; height: 16px;
+  background: #fff;
+  border: 2px solid #111;
+  right: -22px;
+  bottom: -2px;
+}
+.bubble-left .trail-dot.t2 {
+  width: 9px; height: 9px;
+  background: #fff;
+  border: 2px solid #111;
+  right: -38px;
+  bottom: -10px;
+}
+
+/* Right bubbles trail to the LEFT (toward center) */
+.bubble-right .trail-dot.t1 {
+  width: 16px; height: 16px;
+  background: linear-gradient(135deg, #ffd1e8, #cfe9ff);
+  border: 1.5px solid rgba(255,255,255,0.85);
+  box-shadow: 0 0 10px rgba(255, 150, 200, 0.6);
+  left: -22px;
+  bottom: -2px;
+}
+.bubble-right .trail-dot.t2 {
+  width: 9px; height: 9px;
+  background: linear-gradient(135deg, #ffd1e8, #cfe9ff);
+  border: 1.5px solid rgba(255,255,255,0.85);
+  box-shadow: 0 0 8px rgba(255, 150, 200, 0.5);
+  left: -38px;
+  bottom: -10px;
+}
+
+/* ---------------------------------------- RESPONSIVE ----- */
+@media (max-width: 720px) {
+  html, body { overflow: auto; }
+  .brain { height: auto; min-height: 100vh; }
+  .equations span { font-size: 0.7rem; }
+  .creative-glyphs span { font-size: 1.3rem; }
+  .photo-frame { width: 140px; }
+  .bubble-label { font-size: 0.85rem; }
+  .bubble { padding: 12px 20px; min-width: 90px; }
+  .degas-frame { width: 110px; right: 5%; top: 5%; }
+  .pointe-shoes { width: 90px; right: 5%; bottom: 5%; }
+}

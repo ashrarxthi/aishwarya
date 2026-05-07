@@ -22,15 +22,22 @@ html, body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-}
-
-/* Background paint covers the full stage */
-.bg-paint {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+  /* Cream cover (opaque on left, fades to transparent across the middle)
+     layered over a vertical rainbow — page bleeds smoothly into color */
+  background-color: #f6f5f1;
+  background-image:
+    linear-gradient(to right,
+      #f6f5f1 0%,
+      #f6f5f1 28%,
+      rgba(246, 245, 241, 0) 82%),
+    linear-gradient(to bottom,
+      #ffd0d0 0%,
+      #ffd9b0 18%,
+      #fff2bf 36%,
+      #cdf0c9 54%,
+      #cfe6ff 72%,
+      #dccdf2 86%,
+      #f1cdec 100%);
 }
 
 /* ---------------------------------------- SIDES (decoration containers only — no bg) ----- */
@@ -46,13 +53,15 @@ html, body {
 .side-left  { left: 0; }
 .side-right { right: 0; }
 
-/* Graph paper on left */
+/* Graph paper on left — fades out before reaching the middle */
 .grid-paper {
   position: absolute; inset: 0;
   background-image:
     linear-gradient(to right,  rgba(0,0,0,0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
   background-size: 28px 28px;
+  -webkit-mask-image: linear-gradient(to right, black 0%, black 40%, transparent 80%);
+          mask-image: linear-gradient(to right, black 0%, black 40%, transparent 80%);
 }
 
 /* Equation labels on left */
